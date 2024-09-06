@@ -1,22 +1,23 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
-
+import { CookiesProvider } from "next-client-cookies/server";
+import "@/app/globals.css";
+import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Esport",
   description: "Next 14 App",
 };
 
-export default function RootLayout({
+const StartLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
-    <html lang="fr" className={inter.className}>
-      <body className={inter.className}>{children}</body>
+    <html lang="fr">
+      <body>
+        <CookiesProvider>{children}</CookiesProvider>
+      </body>
     </html>
   );
-}
+};
+
+export default StartLayout;

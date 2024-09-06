@@ -1,5 +1,7 @@
-import { styles } from "./header.style";
-
-export default function Header() {
-  return <header style={styles.header}>Header</header>;
+export default function Header({ pageTitle }: { pageTitle: string }) {
+  return (
+    <header>
+      <h1>{pageTitle}</h1>
+    </header>
+  );
 }

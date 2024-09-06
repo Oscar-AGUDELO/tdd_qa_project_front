@@ -1,25 +1,24 @@
 "use client";
-import { redirect } from "next/navigation";
-import { styles } from "./page.style";
+import { Page } from "@/components/sections/main/main";
+import { F_IsAdmin } from "@/functions/user/F_IsAdmin";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { F_Sleep } from "../../functions/utils/F_Sleep";
-import { F_GetUserRole } from "../../functions/user/F_GetUserRole";
-
 export default function Home() {
-  useEffect(() => {
-    const token = sessionStorage.getItem("token");
-    if (token) {
-      const role = F_GetUserRole(token);
-      console.log(role);
-      if (role === "admin") {
-        return F_Sleep(redirect("/admin"), 1000);
-      } else if (role === "user") {
-        return F_Sleep(redirect("/admin"), 1000);
-      }
-    } else {
-      return F_Sleep(console.log("/conection"), 1000);
-    }
-  }, []);
+  const router = useRouter();
 
-  return <div style={styles.main}>Home</div>;
+  useEffect(() => {
+    const checkAdmin = async () => {
+      const isAdmin = await F_IsAdmin();
+
+      if (isAdmin) {
+        router.replace("/admin/dashboard");
+      }
+    };
+    checkAdmin();
+  }, [router]);
+  return (
+    <Page pageTitle="Home">
+      <></>
+    </Page>
+  );
 }
