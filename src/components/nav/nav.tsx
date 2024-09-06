@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { F_IsAdmin } from "@/functions/user/F_IsAdmin";
+import { F_IsAdmin } from "@/functions/F_IsAdmin";
 import Link from "next/link";
 
 export default function Nav({ isAdmin }: { isAdmin: boolean }) {

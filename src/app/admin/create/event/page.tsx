@@ -1,4 +1,4 @@
-import { Page } from "@/components/sections/main/main";
+import { Page } from "@/components/main/main";
 
 export default function CreateEvent() {
   return (

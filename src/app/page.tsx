@@ -1,6 +1,6 @@
 "use client";
-import { Page } from "@/components/sections/main/main";
-import { F_IsAdmin } from "@/functions/user/F_IsAdmin";
+import { Page } from "@/components/main/main";
+import { F_IsAdmin } from "@/functions/F_IsAdmin";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 export default function Home() {

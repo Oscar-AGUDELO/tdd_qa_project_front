@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Page } from "@/components/sections/main/main";
+import { Page } from "@/components/main/main";
 
 export default function Events() {
   const [events, setEvents] = useState<any[]>([]);

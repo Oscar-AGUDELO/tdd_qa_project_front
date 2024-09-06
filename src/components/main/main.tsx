@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import Nav from "../nav/nav";
-import { F_IsAdmin } from "@/functions/user/F_IsAdmin";
+import { F_IsAdmin } from "@/functions/F_IsAdmin";
 
 const adminPages = ["Dashboard Admin", "Create Event"];
 

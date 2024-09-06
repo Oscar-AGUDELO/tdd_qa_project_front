@@ -1,6 +1,6 @@
 "use client";
 
-import { Page } from "@/components/sections/main/main";
+import { Page } from "@/components/main/main";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

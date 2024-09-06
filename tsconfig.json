@@ -32,8 +32,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/__tests__/Footer.test.tsx"
-  ],
+    "__tests__/components.test.tsx"
+, "jest.config.js", "__tests__/unit.test.js"  ],
   "exclude": [
     "node_modules"
   ]
