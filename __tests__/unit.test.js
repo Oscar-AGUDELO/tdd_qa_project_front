@@ -1,5 +1,5 @@
 import { F_IsAdmin } from "@/functions/F_IsAdmin";
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 jest.mock("jwt-decode");
 
@@ -14,7 +14,7 @@ describe("F_IsAdmin", () => {
       "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "admin",
     };
 
-    jwtDecode.mockReturnValue(decodedToken);
+    jwtDecode.mockImplementation(() => decodedToken);
     sessionStorage.setItem("token", token);
 
     const result = await F_IsAdmin();
@@ -27,7 +27,7 @@ describe("F_IsAdmin", () => {
       "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "user",
     };
 
-    jwtDecode.mockReturnValue(decodedToken);
+    jwtDecode.mockImplementation(() => decodedToken);
     sessionStorage.setItem("token", token);
 
     const result = await F_IsAdmin();
