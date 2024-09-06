@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function ConnectionAdmin() {
-  const [email, setEmail] = useState("admin");
+  const [userName, setUserName] = useState("admin");
   const [password, setPassword] = useState("root123123");
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState("");
@@ -20,7 +20,7 @@ export default function ConnectionAdmin() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ UserName: email, Password: password }),
+          body: JSON.stringify({ UserName: userName, Password: password }),
         }
       );
 
@@ -34,7 +34,7 @@ export default function ConnectionAdmin() {
         sessionStorage.setItem("token", data.token);
         router.push("/admin/dashboard");
       } else {
-        setErrorMessage("Invalid email or password.");
+        setErrorMessage("Invalid userName or password.");
       }
     } catch (err: any) {
       console.error("Login error:", err);
@@ -91,7 +91,7 @@ export default function ConnectionAdmin() {
           <form onSubmit={handleSubmit}>
             <div style={{ marginBottom: "15px" }}>
               <label
-                htmlFor="email"
+                htmlFor="userName"
                 style={{
                   display: "block",
                   marginBottom: "8px",
@@ -99,13 +99,13 @@ export default function ConnectionAdmin() {
                   fontSize: "1rem",
                 }}
               >
-                Email:
+                UserName:
               </label>
               <input
                 type="test"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                id="userName"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
                 required
                 style={{
                   width: "100%",
